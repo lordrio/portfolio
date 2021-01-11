@@ -3,17 +3,23 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from 'vue'
+export default Vue.extend({
   data() {
     return {
       name: 'haims',
     }
   },
-  async created() {
-    const cats = await this.$axios.$get('https://cat-fact.herokuapp.com/facts')
-    console.log(cats)
+  created() {
+    const a = async () => {
+      const cats = await this.$axios.$get(
+        'https://cat-fact.herokuapp.com/facts'
+      )
+      console.log(cats)
+    }
+    a()
   },
-}
+})
 </script>
 
 <style></style>
