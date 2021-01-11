@@ -9,10 +9,9 @@ export default {
       name: 'haims',
     }
   },
-  created() {
-    fetch('https://cat-fact.herokuapp.com/facts').then((res) => {
-      console.log(res)
-    })
+  async created() {
+    const cats = await this.$axios.$get('https://cat-fact.herokuapp.com/facts')
+    console.log(cats)
   },
 }
 </script>
